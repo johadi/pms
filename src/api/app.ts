@@ -25,4 +25,4 @@ app.use((err: createError.HttpError, req: express.Request, res: express.Response
   }
 });
 
-export default app;
+module.exports = app;
