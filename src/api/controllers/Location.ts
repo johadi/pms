@@ -23,7 +23,7 @@ export class Location {
       return Promise.reject({code: 400, message: 'Parameter name is required'});
     }
 
-    return db.Location.findOne({where: { name: req.params.name }})
+    return db.Location.findOne({where: { name: req.params.name }, include: { association: 'childLocation' } })
       .then((location: any) => {
         if (!location) {
           return Promise.reject({code: 404, message: 'Location not found'});
@@ -53,7 +53,7 @@ export class Location {
 
   static getAll(req: express.Request, res: express.Response) {
 
-    return db.Location.findAll()
+    return db.Location.findAll({ include: { association: 'childLocation' } })
       .then((locations: any[]) => {
         if (locations.length === 0) {
           return Promise.reject({code: 404, message: 'No location found'});

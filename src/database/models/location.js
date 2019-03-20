@@ -33,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Location.associate = function(models) {
     // associations can be defined here
-    Location.hasMany(models.Location, { as: 'childLocation', foreignKey: 'parentLocationId' }, { onDelete: 'set null', hooks: true });
+    Location.hasMany(models.Location, { as: 'childLocation', foreignKey: 'parentLocationId' }, { onDelete: 'set null' });
   };
 
   Location.createRules = () => ({
