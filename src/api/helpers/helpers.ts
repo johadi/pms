@@ -28,7 +28,6 @@ const handleError = (err: any, res: express.Response) => {
 /**
  * Helper function that handles success messages
  * @function handleSuccess
- * @param {number} code - success code parameter
  * @param {object} body - response body
  * @param {object} res - response parameter
  * @return {object} response detail

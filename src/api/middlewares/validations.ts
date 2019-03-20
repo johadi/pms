@@ -3,6 +3,14 @@ import db = require('../../database/models');
 import * as Validator from 'validatorjs';
 import { handleError } from "../helpers/helpers";
 
+/**
+ * Middleware function for validating a location creation
+ * @function validateCreateLocation
+ * @param {object} req - request parameter
+ * @param {object} res - response parameter
+ * @param {object} next - next parameter
+ * @return {object} response detail
+ */
 export const validateCreateLocation = (req: express.Request, res: express.Response, next: express.NextFunction) => {
   const validator = new Validator(req.body, db.Location.createRules());
   if (validator.fails()) {
