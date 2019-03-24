@@ -24,7 +24,7 @@ export const validateCreateLocation = (req: express.Request, res: express.Respon
   db.Location.findOne({where: {name: req.body.parentLocation}})
     .then((foundLocation: any) => {
       if (!foundLocation) {
-        return handleError({code: 404, message: 'Parent location not found'}, res);
+        return handleError({code: 404, message: 'Parent location not found.'}, res);
       }
 
       req.body.parentLocationId = foundLocation.id;

@@ -25,4 +25,8 @@ app.use((err: createError.HttpError, req: express.Request, res: express.Response
   }
 });
 
-module.exports = app;
+// use with any ts file
+export { app }
+
+// use with non-ts file
+exports.app = app;
